@@ -5,6 +5,7 @@ Runnable examples for the [Football Charts](https://www.football-charts.com) API
 | Folder | Example |
 |---|---|
 | [`penaltyblog/`](penaltyblog/) | Dixon-Coles on Germany's 3. Liga with [penaltyblog](https://github.com/martineastwood/penaltyblog), walk-forward evaluation (RPS vs baseline) |
+| [`r/`](r/) | Half-time/full-time heatmap in R (jsonlite + ggplot2), [tutorial](https://www.football-charts.com/insights/ht-ft-heatmap-r) |
 
 The API is free for the current and previous season: no key needed (300 requests/day), or 5,000/day with a free key from [football-charts.com/developers](https://www.football-charts.com/developers). Older seasons (back to 2020) need a paid key.
 
