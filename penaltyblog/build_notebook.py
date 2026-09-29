@@ -21,7 +21,7 @@ import pandas as pd
 import penaltyblog as pb
 from fc_loader import fc_leagues, fc_results
 
-print("penaltyblog", pb.__version__)"""),
+print("penaltyblog", pb.__version__)   # needs >= 1.12.3 with pandas 3"""),
 
 md("""## 1. Load
 
@@ -71,12 +71,8 @@ for day in eval_days:
     train = df[df.date < day]
     games = pd.concat([train.team_home, train.team_away]).value_counts()
     weights = pb.models.dixon_coles_weights(train.date, xi=0.0018, base_date=day)
-    # Writable copies: pandas >= 3 (copy-on-write) hands out read-only arrays,
-    # which penaltyblog's compiled loss function rejects.
     model = pb.models.DixonColesGoalModel(
-        train.goals_home.to_numpy(copy=True), train.goals_away.to_numpy(copy=True),
-        train.team_home.to_numpy(copy=True), train.team_away.to_numpy(copy=True),
-        np.array(weights, copy=True))
+        train.goals_home, train.goals_away, train.team_home, train.team_away, weights)
     model.fit()
     base = (np.bincount([outcome(h, a) for h, a in zip(train.goals_home, train.goals_away)],
                         minlength=3) / len(train))
