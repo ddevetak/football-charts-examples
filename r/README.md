@@ -13,4 +13,6 @@ No key needed for the current and previous season. Tested with R 4.6.1, jsonlite
 
 ![HT/FT heatmap](ht_ft_heatmap_3liga_2025-26.png)
 
+Replication package with frozen data and reference counts: [doi:10.7910/DVN/W8HN9G](https://doi.org/10.7910/DVN/W8HN9G) (Harvard Dataverse).
+
 Data by football-charts.com.
